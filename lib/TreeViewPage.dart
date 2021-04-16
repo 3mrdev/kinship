@@ -26,9 +26,9 @@ class _TreeViewPageState extends State<TreeViewPage> {
                   algorithm: BuchheimWalkerAlgorithm(
                       builder, TreeEdgeRenderer(builder)),
                   paint: Paint()
-                    ..color = Colors.green
-                    ..strokeWidth = 5
-                    ..style = PaintingStyle.fill,
+                    ..color = Colors.white
+                    ..strokeWidth = 3
+                    ..style = PaintingStyle.stroke,
                 )),
           ),
         ],
@@ -44,15 +44,24 @@ class _TreeViewPageState extends State<TreeViewPage> {
       child: Container(
           child: Column(
         children: [
+          SizedBox(
+            height: 10,
+          ),
           Image.asset(
             "assets/img/3mrdev.png",
             width: 100,
             height: 100,
           ),
+          SizedBox(
+            height: 10,
+          ),
           Text(
             name,
             style: TextStyle(color: Colors.white),
-          )
+          ),
+          SizedBox(
+            height: 10,
+          ),
         ],
       )),
     );
@@ -65,6 +74,7 @@ class _TreeViewPageState extends State<TreeViewPage> {
   void initState() {
     final Node hassan = Node(getNode("Hassan Alawad"));
     final Node mrdia = Node(getNode("Mardia Yahia"));
+
     final Node abdalkrim = Node(getNode("Abd-Alkrim Hassan Alawad"));
     final Node saif = Node(getNode("Saif Aldeen Hassan Alawad"));
     final Node emad = Node(getNode("Emad Aldeen Hassan Alawad"));
