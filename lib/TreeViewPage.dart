@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:graphview/GraphView.dart';
 
@@ -22,15 +20,15 @@ class _TreeViewPageState extends State<TreeViewPage> {
                 constrained: false,
                 boundaryMargin: EdgeInsets.all(100),
                 minScale: 0.01,
-                maxScale: 5.6,
+                maxScale: 15.6,
                 child: GraphView(
                   graph: graph,
                   algorithm: BuchheimWalkerAlgorithm(
                       builder, TreeEdgeRenderer(builder)),
                   paint: Paint()
                     ..color = Colors.green
-                    ..strokeWidth = 1
-                    ..style = PaintingStyle.stroke,
+                    ..strokeWidth = 2
+                    ..style = PaintingStyle.fill,
                 )),
           ),
         ],
@@ -78,9 +76,12 @@ class _TreeViewPageState extends State<TreeViewPage> {
     final Node node11 = Node(getNode());
     final Node node12 = Node(getNode());
 
+    final Node amr = Node(getNode());
+
     graph.addEdge(node1, node2);
     graph.addEdge(node1, node3);
     graph.addEdge(node1, node4);
+    graph.addEdge(node1, amr);
     graph.addEdge(node2, node5);
     graph.addEdge(node2, node6);
     graph.addEdge(node6, node7);
