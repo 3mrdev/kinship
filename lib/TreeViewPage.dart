@@ -18,7 +18,7 @@ class _TreeViewPageState extends State<TreeViewPage> {
           Expanded(
             child: InteractiveViewer(
                 constrained: false,
-                boundaryMargin: EdgeInsets.all(100),
+                boundaryMargin: EdgeInsets.all(150),
                 minScale: 0.01,
                 maxScale: 15.6,
                 child: GraphView(
@@ -27,7 +27,7 @@ class _TreeViewPageState extends State<TreeViewPage> {
                       builder, TreeEdgeRenderer(builder)),
                   paint: Paint()
                     ..color = Colors.green
-                    ..strokeWidth = 2
+                    ..strokeWidth = 5
                     ..style = PaintingStyle.fill,
                 )),
           ),
@@ -36,7 +36,7 @@ class _TreeViewPageState extends State<TreeViewPage> {
     ));
   }
 
-  Widget getNode() {
+  Widget getNode(String name) {
     return InkWell(
       onTap: () {
         print('clicked');
@@ -50,7 +50,7 @@ class _TreeViewPageState extends State<TreeViewPage> {
             height: 100,
           ),
           Text(
-            "Amr Abd-Alkrim",
+            name,
             style: TextStyle(color: Colors.white),
           )
         ],
@@ -63,33 +63,31 @@ class _TreeViewPageState extends State<TreeViewPage> {
 
   @override
   void initState() {
-    final Node node1 = Node(getNode());
-    final Node node2 = Node(getNode());
-    final Node node3 = Node(getNode());
-    final Node node4 = Node(getNode());
-    final Node node5 = Node(getNode());
-    final Node node6 = Node(getNode());
-    final Node node8 = Node(getNode());
-    final Node node7 = Node(getNode());
-    final Node node9 = Node(getNode());
-    final Node node10 = Node(getNode());
-    final Node node11 = Node(getNode());
-    final Node node12 = Node(getNode());
+    final Node hassan = Node(getNode("Hassan Alawad"));
+    final Node mrdia = Node(getNode("Mardia Yahia"));
+    final Node abdalkrim = Node(getNode("Abd-Alkrim Hassan Alawad"));
+    final Node saif = Node(getNode("Saif Aldeen Hassan Alawad"));
+    final Node emad = Node(getNode("Emad Aldeen Hassan Alawad"));
+    final Node abdalrhman = Node(getNode("Abd-Alrhman Hassan Alawad"));
+    final Node abobker = Node(getNode("Abobaker Hassan Alawad"));
 
-    final Node amr = Node(getNode());
+    final Node amr = Node(getNode("Amr Abd-Alkrim Hassan"));
+    final Node osman = Node(getNode("Osman Abd-Alkrim Hassan"));
+    final Node emad2 = Node(getNode("Emad Abd-Alkrim Hassan"));
 
-    graph.addEdge(node1, node2);
-    graph.addEdge(node1, node3);
-    graph.addEdge(node1, node4);
-    graph.addEdge(node1, amr);
-    graph.addEdge(node2, node5);
-    graph.addEdge(node2, node6);
-    graph.addEdge(node6, node7);
-    graph.addEdge(node6, node8);
-    graph.addEdge(node4, node9);
-    graph.addEdge(node4, node10);
-    graph.addEdge(node4, node11);
-    graph.addEdge(node11, node12);
+    graph.addEdge(hassan, abdalkrim);
+    graph.addEdge(hassan, saif);
+    graph.addEdge(hassan, emad);
+    graph.addEdge(hassan, abdalrhman);
+    graph.addEdge(hassan, abobker);
+    graph.addEdge(mrdia, abdalkrim);
+    graph.addEdge(mrdia, saif);
+    graph.addEdge(mrdia, emad);
+    graph.addEdge(mrdia, abdalrhman);
+    graph.addEdge(mrdia, abobker);
+    graph.addEdge(abdalkrim, amr);
+    graph.addEdge(abdalkrim, osman);
+    graph.addEdge(abdalkrim, emad2);
 
     builder
       ..siblingSeparation = (100)
